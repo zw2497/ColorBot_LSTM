@@ -47,8 +47,8 @@ function disableLoadModelButtons() {
 function doPredict(predict) {
   const textField = document.getElementById('text-entry');
   const result = predict(textField.value);
-  console.log(result, `rgb(${result.score[0] * 255}, ${result.score[1] * 255}, ${result.score[2] * 255})`);
-  document.getElementById('text-entry').style.backgroundColor = `rgb(${result.score[0] * 255}, ${result.score[1] * 255}, ${result.score[2] * 255})`;
+  console.log(result, `rgb(${Math.floor(result.score[0] * 255)}, ${Math.floor(result.score[1] * 255)}, ${Math.floor(result.score[2] * 255)})`);
+  document.getElementById('text-entry').style.backgroundColor = `rgb(${Math.floor(result.score[0] * 255)}, ${Math.floor(result.score[1] * 255)}, ${Math.floor(result.score[2] * 255)})`;
 }
 
 function prepUI(predict) {
