@@ -57,7 +57,7 @@ function prepUI(predict) {
   testExampleSelect.addEventListener('change', () => {
     settextField(examples[testExampleSelect.value], predict);
   });
-  settextField(examples['example1'], predict);
+  settextField(examples['red'], predict);
 }
 
 async function urlExists(url) {
@@ -122,7 +122,7 @@ class Classifier {
     const inputBuffer = tf.buffer([1, this.maxLen], 'float32');
     for (let i = 0; i < inputText.length; ++i) {
       const word = inputText[i];
-      inputBuffer.set(this.wordIndex[word], 0, this.maxLen - inputText.length - i);
+      inputBuffer.set(this.wordIndex[word], 0, i);
       //console.log(word, this.wordIndex[word], inputBuffer);
     }
     const input = inputBuffer.toTensor();
